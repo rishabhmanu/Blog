@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
-from .models import Post
+from .models import Post, Comment
 from django.utils import timezone
 from .forms import ContactForm
 from django.core.mail import send_mail, BadHeaderError

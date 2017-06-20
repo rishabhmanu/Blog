@@ -10,7 +10,7 @@
                    <div class="post-heading">
                        <h1>Man must explore, and this is exploration at its greatest</h1>
                        <h2 class="subheading">Problems look mighty small from 150 miles up</h2>
-                       <span class="meta">Posted by <a href="{% url 'about' %}">Rishah Dev Manu</a> </span>
+                       <span class="meta">Posted by <a href="{% url 'about' %}">Rishabh Dev Manu</a> </span>
                    </div>
                </div>
            </div>
@@ -23,8 +23,22 @@
               {{ post.published_date }}
           </div>
       {% endif %}
-      
+
       <h1>{{ post.title }}</h1>
       <p>{{ post.text|linebreaksbr }}</p>
   </div>
+<!--comments here -->
+
+<hr>
+<p> Comments </p>
+{% for comment in post.comments.all %}
+    <div class="comment">
+        <div class="date">{{ comment.created_date }}</div>
+        <strong>{{ comment.author }}</strong>
+        <p>{{ comment.text|linebreaks }}</p>
+    </div>
+{% empty %}
+    <p>No comments here yet :(</p>
+{% endfor %}
+
 {% endblock %}
